@@ -1,0 +1,162 @@
+html {
+	background-color: #F0F4F7;
+}
+body {
+	margin: -16px 0;
+}
+
+.title {
+	position: fixed;
+	width: 200px;
+	height: 102%;
+	background-color: #2D425F;
+	text-align: center;
+}
+.name {
+	position: absolute;
+	display: -webkit-box;
+	text-align: -webkit-center;
+	-webkit-box-align: center;
+	top: 16px;
+	width: 100%;
+	height: 55px;
+	font-size: 180%;
+	color: #fff;
+	background-color: #E15B4F;
+}
+.btn {
+	width: 100%;
+	height: 35px;
+	color: #fff;
+	border-bottom: 1px solid;
+}
+.pic {
+	position: absolute;
+	top: 93px;
+	left: 0;
+	text-decoration: none;
+}
+.iconS {
+	position: absolute;
+	top: 154px;
+	left: 0;
+	text-decoration: none;
+}
+.iconD {
+	position: absolute;
+	top: 218px;
+	left: 0;
+	text-decoration: none;
+}
+#main {
+	margin-left: 200px;
+}
+.item {
+	position: fixed;
+	top: 0;
+	display: -webkit-box;
+	text-align: -webkit-left;
+	-webkit-box-align: center;
+	width: 100%;
+	height: 56px;
+	background-color: #2D425F;
+	color: #fff;
+}
+#logo {
+	/*position: absolute;*/
+	/*margin: 0 auto 30px;*/
+	top: 109px;
+	width: 128px;
+	height: 128px;
+	padding-left: 203px;
+}
+.icon {
+	position: relative;
+	margin: 0 auto 30px;
+	top: 128px;
+	width: 128px;
+	height: 128px;
+	background-image: url("../img/logo.png");
+	/*border-bottom: 1px solid;*/
+}
+.content {
+	position: fixed;
+	width: 100%;
+	height: 35%;
+	/*background-color: #B9CDFD;*/
+}
+.part1 {
+	position: fixed;
+	top: 35%;
+	margin-left: 7%;
+	width: 250px;
+	line-height: 32px;
+}
+.part2 {
+	position: fixed;
+	top: 35%;
+	margin-left: 34%;
+	width: 250px;
+	line-height: 32px;
+	/*background-color: #B9CDFD;*/
+}
+.part3 {
+	position: fixed;
+	top: 35%;
+	margin-left: 61%;
+	width: 250px;
+	line-height: 32px;
+	/*background-color: #B9CDFD;*/
+}
+.lineDrawing {
+	position: absolute;
+	max-width: 100%;
+	top: 0;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	   -moz-transform: translateX(-50%);
+	    -ms-transform: translateX(-50%);
+	     -o-transform: translateX(-50%);
+	        transform: translateX(-50%);
+}
+.lineDrawing path {
+	fill: none;
+	stroke-width: 2;
+	stroke: #ddd;
+}
+.lineDrawing path .darker {
+	stroke: #aaa;
+}
+.show {
+	opacity: 1;
+}
+
+.hide {
+	opacity: 0;
+}
+.demo-loading .show, 
+.demo-loading .hide {
+	-webkit-transition: opacity 0.5s;
+	   -moz-transition: opacity 0.5s;
+	    -ms-transition: opacity 0.5s;
+	     -o-transition: opacity 0.5s;
+	        transition: opacity 0.5s;
+}
+#text1 {
+	height: 250px;
+	top: 59%;
+	left: 7%;
+	padding-left: 289px;
+}
+#text2 {
+	height: 250px;
+	top: 59%;
+	left: 34%;
+	padding-left: 289px;
+}
+#text3 {
+	height: 250px;
+	top: 59%;
+	left: 61%;
+	padding-left: 289px;
+}
