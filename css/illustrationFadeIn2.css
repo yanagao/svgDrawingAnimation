@@ -160,3 +160,23 @@ body {
 	left: 61%;
 	padding-left: 289px;
 }
+#leftTitle {
+	width: 100%;
+	top: -5px;
+}
+#picDemo {
+	top: 52px;
+	left: 150px;
+}
+#iconSync {
+	top: 112px;
+	left: 150px;
+}
+#iconDelay {
+	top: 176px;
+	left: 150px;
+}
+#vertical {
+	height: 100%;
+	left: 334px;
+}
