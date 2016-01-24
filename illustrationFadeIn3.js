@@ -1,7 +1,4 @@
 (function() {
-
-	'use strict';
-
 	window.requestAnimFrame = function(){
 		return (
 			window.requestAnimationFrame       || 
@@ -27,69 +24,72 @@
 			}
 		);
 	}();
-	
-	var svgs = Array.prototype.slice.call( document.querySelectorAll( 'svg' ) ),
-		hidden = Array.prototype.slice.call( document.querySelectorAll( '.hide' ) ),
-		current_frame = 0,
-		total_frames = 60,
-		path = new Array(),
-		length = new Array(),
-		handle = 0;
 
-	function init() {
-		[].slice.call( document.querySelectorAll( 'path' ) ).forEach( function( el, i ) {
-			path[i] = el;
-			var l = path[i].getTotalLength();
-			length[i] = l;
-			path[i].style.strokeDasharray = l + ' ' + l; 
-			path[i].style.strokeDashoffset = l;
-		} );
-
+	function SVGEl( el ) {
+		this.el = el;
+		this.current_frame = 0;
+		this.total_frames = 60;
+		this.path = new Array();
+		this.length = new Array();
+		this.handle = 0;
+		this.init();
 	}
-	function render(domEl) {
-		if (domEl) {
+
+	SVGEl.prototype.init = function() {
+		var self = this;
+		[].slice.call( this.el.querySelectorAll( 'path' ) ).forEach( function( path, i ) {
+			self.path[i] = path;
+			var l = self.path[i].getTotalLength();
+			self.length[i] = l;
+			self.path[i].style.strokeDasharray = l + ' ' + l; 
+			self.path[i].style.strokeDashoffset = l;
+		} );
+	};
+
+	SVGEl.prototype.render = function( domEl ) {
+		if( this.rendered ) return;
+		if( domEl ) {
 			this.domEl = domEl;
 		}
-		draw();
-	}
+		this.rendered = true;
+		this.draw();
+	};
 
-	function draw() {
-		var progress = current_frame/total_frames;
-		console.log('xxxxxxxxx'+progress);
+	SVGEl.prototype.draw = function() {
+		var self = this,
+			progress = this.current_frame/this.total_frames;
 		if (progress > 1) {
-			window.cancelAnimFrame(handle);
-			showPage();
+			window.cancelAnimFrame(this.handle);
+			this.showDomEl();
 		} else {
-			current_frame++;
-			for(var j=0; j<path.length;j++){
-				path[j].style.strokeDashoffset = Math.floor(length[j] * (1 - progress));
+			this.current_frame++;
+			for(var j=0, len = this.path.length; j<len;j++){
+				this.path[j].style.strokeDashoffset = Math.floor(this.length[j] * (1 - progress));
 			}
-			handle = window.requestAnimFrame(draw);
-			console.log(handle);
+			this.handle = window.requestAnimFrame(function() { self.draw(); });
 		}
-	}
+	};
 
-	function showPage() {
+	SVGEl.prototype.showDomEl = function() {
+		if( this.domEl ) {
+			this.el.setAttribute( 'class', this.el.getAttribute('class').replace("hide", "show"));
+		}
+		this.el.setAttribute( 'class', this.el.getAttribute('class') + ' hide' );
+	};
+	
+	function init() {
+		var svgs = Array.prototype.slice.call( document.querySelectorAll( 'svg' ) );
+
 		svgs.forEach( function( el, i ) {
-			el.setAttribute( 'class', el.getAttribute('class') + ' hide' );
-		} );
-		hidden.forEach( function( el, i ) {
-			el.setAttribute( 'class', el.getAttribute('class').replace("hide", "show"));
-		} );
-	}
-	function show() {
-		svgs.forEach( function( el, i ) {
-			var svgid = el.id;
+			var svg = new SVGEl( el ),
+				svgid = el.id;
 
 			setTimeout( function() {
-				render( document.querySelector( '[data-svg=' + svgid + ']' ) );
+				svg.render( document.querySelector( '[data-svg=' + svgid + ']' ) );
 			}, Math.floor( Math.random() * 2001 ) );
 		} );
 	}
-	// init();
-	// setTimeout( function() {
-	// draw();
-	// }, Math.floor( Math.random() * 2001 ) );
-	show();
+
+	init();
 
 })();
