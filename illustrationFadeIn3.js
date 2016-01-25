@@ -25,7 +25,7 @@
 		);
 	}();
 
-	function SVGEl( el ) {
+	function element( el ) {
 		this.el = el;
 		this.current_frame = 0;
 		this.total_frames = 60;
@@ -35,7 +35,7 @@
 		this.init();
 	}
 
-	SVGEl.prototype.init = function() {
+	element.prototype.init = function() {
 		var self = this;
 		[].slice.call( this.el.querySelectorAll( 'path' ) ).forEach( function( path, i ) {
 			self.path[i] = path;
@@ -46,7 +46,7 @@
 		} );
 	};
 
-	SVGEl.prototype.render = function( domEl ) {
+	element.prototype.render = function( domEl ) {
 		if( this.rendered ) return;
 		if( domEl ) {
 			this.domEl = domEl;
@@ -55,7 +55,7 @@
 		this.draw();
 	};
 
-	SVGEl.prototype.draw = function() {
+	element.prototype.draw = function() {
 		var self = this,
 			progress = this.current_frame/this.total_frames;
 		if (progress > 1) {
@@ -70,9 +70,10 @@
 		}
 	};
 
-	SVGEl.prototype.showDomEl = function() {
+	element.prototype.showDomEl = function() {
+		console.log(this.domEl);
 		if( this.domEl ) {
-			this.el.setAttribute( 'class', this.el.getAttribute('class').replace("hide", "show"));
+			this.domEl.setAttribute( 'class', this.domEl.getAttribute('class').replace("hide", "show"));
 		}
 		this.el.setAttribute( 'class', this.el.getAttribute('class') + ' hide' );
 	};
@@ -81,7 +82,7 @@
 		var svgs = Array.prototype.slice.call( document.querySelectorAll( 'svg' ) );
 
 		svgs.forEach( function( el, i ) {
-			var svg = new SVGEl( el ),
+			var svg = new element( el ),
 				svgid = el.id;
 
 			setTimeout( function() {
