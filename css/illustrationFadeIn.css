@@ -1,0 +1,158 @@
+html {
+	background-color: #F0F4F7;
+}
+body {
+	margin: -16px 0;
+}
+
+.title {
+	position: fixed;
+	width: 200px;
+	height: 102%;
+	background-color: #2D425F;
+	text-align: center;
+}
+.name {
+	position: absolute;
+	display: -webkit-box;
+	text-align: -webkit-center;
+	-webkit-box-align: center;
+	top: 0;
+	width: 100%;
+	height: 55px;
+	font-size: 180%;
+	color: #fff;
+	background-color: #E15B4F;
+}
+.btn {
+	width: 100%;
+	height: 35px;
+	color: #fff;
+	border-bottom: 1px solid;
+}
+.pic {
+	position: absolute;
+	top: 77px;
+	left: 0;
+	text-decoration: none;
+}
+.iconS {
+	position: absolute;
+	top: 138px;
+	left: 0;
+	text-decoration: none;
+}
+.iconD {
+	position: absolute;
+	top: 202px;
+	left: 0;
+	text-decoration: none;
+}
+#main {
+	margin-left: 200px;
+}
+.item {
+	position: fixed;
+	top: 0;
+	display: -webkit-box;
+	text-align: -webkit-left;
+	-webkit-box-align: center;
+	width: 100%;
+	height: 56px;
+	background-color: #2D425F;
+	color: #fff;
+}
+.content {
+	position: fixed;
+	width: 100%;
+	height: 35%;
+	/*background-color: #B9CDFD;*/
+}
+.lineDrawing {
+	position: absolute;
+	max-width: 100%;
+	top: 0;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	   -moz-transform: translateX(-50%);
+	    -ms-transform: translateX(-50%);
+	     -o-transform: translateX(-50%);
+	        transform: translateX(-50%);
+}
+.lineDrawing path {
+	fill: none;
+	stroke-width: 2;
+	/*stroke: #ddd;*/
+}
+.darker {
+	stroke: #aaa;
+}
+.show {
+	opacity: 1;
+}
+
+.hide {
+	opacity: 0;
+}
+.demo-loading .show, 
+.demo-loading .hide {
+	-webkit-transition: opacity 0.5s;
+	   -moz-transition: opacity 0.5s;
+	    -ms-transition: opacity 0.5s;
+	     -o-transition: opacity 0.5s;
+	        transition: opacity 0.5s;
+}
+#text1 {
+	height: 250px;
+	top: 59%;
+	left: 7%;
+	padding-left: 289px;
+}
+#text2 {
+	height: 250px;
+	top: 59%;
+	left: 34%;
+	padding-left: 289px;
+}
+#text3 {
+	height: 250px;
+	top: 59%;
+	left: 61%;
+	padding-left: 289px;
+}
+#leftTitle {
+	width: 100%;
+	top: -5px;
+}
+#picDemo {
+	top: 52px;
+	left: 150px;
+}
+#iconSync {
+	top: 112px;
+	left: 150px;
+}
+#iconDelay {
+	top: 176px;
+	left: 150px;
+}
+#vertical {
+	width: 720px;
+	height: 100%;
+	left: 334px;
+}
+.imac {
+	width: 690px;
+	height: 600px;
+	position: relative;
+	margin: 0 auto 30px;
+	top: 168px;
+	background-image: url("../img/imac.png");
+	background-size: 100% 100%;
+}
+#mac {
+	top: 168px;
+	padding-left: 196px;
+	width: 690px;
+	height: 600px;
+}
