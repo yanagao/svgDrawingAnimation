@@ -25,7 +25,7 @@
 		);
 	}();
 
-	function element( el ) {
+	function SVGEl( el ) {
 		this.el = el;
 		this.current_frame = 0;
 		this.total_frames = 60;
@@ -35,7 +35,7 @@
 		this.init();
 	}
 
-	element.prototype.init = function() {
+	SVGEl.prototype.init = function() {
 		var self = this;
 		[].slice.call( this.el.querySelectorAll( 'path' ) ).forEach( function( path, i ) {
 			self.path[i] = path;
@@ -46,7 +46,7 @@
 		} );
 	};
 
-	element.prototype.render = function( domEl ) {
+	SVGEl.prototype.render = function( domEl ) {
 		if( this.rendered ) return;
 		if( domEl ) {
 			this.domEl = domEl;
@@ -55,7 +55,7 @@
 		this.draw();
 	};
 
-	element.prototype.draw = function() {
+	SVGEl.prototype.draw = function() {
 		var self = this,
 			progress = this.current_frame/this.total_frames;
 		if (progress > 1) {
@@ -70,7 +70,7 @@
 		}
 	};
 
-	element.prototype.showDomEl = function() {
+	SVGEl.prototype.showDomEl = function() {
 		console.log(this.domEl);
 		if( this.domEl ) {
 			this.domEl.setAttribute( 'class', this.domEl.getAttribute('class').replace("hide", "show"));
@@ -82,7 +82,7 @@
 		var svgs = Array.prototype.slice.call( document.querySelectorAll( 'svg' ) );
 
 		svgs.forEach( function( el, i ) {
-			var svg = new element( el ),
+			var svg = new SVGEl( el ),
 				svgid = el.id;
 
 			setTimeout( function() {
